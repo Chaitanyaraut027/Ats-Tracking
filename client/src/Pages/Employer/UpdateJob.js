@@ -14,7 +14,6 @@ export const UpdateJob = () => {
         register,
         handleSubmit,
         reset,
-        formState: { errors },
     } = useForm({
         defaultValues: {
             jobTitle: '',

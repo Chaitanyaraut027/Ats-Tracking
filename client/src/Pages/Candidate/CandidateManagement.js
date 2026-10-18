@@ -55,6 +55,7 @@ export const CandidateManagement = () => {
             fetchCandidates();
         }, 200);
         return () => clearTimeout(timeout);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTerm, selectedStage]);
 
     const handleStageChange = async (candidateId, newStage) => {

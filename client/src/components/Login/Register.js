@@ -12,7 +12,6 @@ export const Register = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm({
         defaultValues: {
             userName: '',

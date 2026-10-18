@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 import { SimilarJobs } from '../SimilarJobs';
 
 export const JobDetails = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
 
     const [job, setJob] = useState(null);
     const [applicants, setApplicants] = useState([]);

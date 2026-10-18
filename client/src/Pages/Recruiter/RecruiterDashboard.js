@@ -8,8 +8,6 @@ export const RecruiterDashboard = () => {
     const [applicants, setApplicants] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
-
     useEffect(() => {
         const loadPipeline = async () => {
             try {

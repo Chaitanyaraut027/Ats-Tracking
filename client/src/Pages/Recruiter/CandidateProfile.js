@@ -9,7 +9,6 @@ export const CandidateProfile = () => {
     const { id } = useParams();
 
     const [candidate, setCandidate] = useState(null);
-    const [applications, setApplications] = useState([]);
     const [jobs, setJobs] = useState([]);
     const [selectedJobId, setSelectedJobId] = useState('');
     const [resumeText, setResumeText] = useState('');
@@ -25,17 +24,12 @@ export const CandidateProfile = () => {
     const [newNoteText, setNewNoteText] = useState('');
     const [isSavingNote, setIsSavingNote] = useState(false);
 
-    // Feedback state
-    const [feedbackQuestion1, setFeedbackQuestion1] = useState('Yes');
-    const [feedbackQuestion2, setFeedbackQuestion2] = useState('Yes');
-
     const fetchCandidateData = async () => {
         try {
             setIsLoading(true);
             const data = await api.get(`/api/candidates/${id}`);
             if (data && data.candidate) {
                 setCandidate(data.candidate);
-                setApplications(data.applications || []);
                 setNotes(data.candidate.notes || []);
                 if (data.candidate.resumeText) {
                     setResumeText(data.candidate.resumeText);
@@ -87,6 +81,7 @@ export const CandidateProfile = () => {
             fetchCandidateData();
             fetchJobs();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     const handleStageUpdate = async (newStage) => {

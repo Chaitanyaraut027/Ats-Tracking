@@ -11,7 +11,6 @@ export const PostJob = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm({
         defaultValues: {
             jobTitle: '',

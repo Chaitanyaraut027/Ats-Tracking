@@ -20,7 +20,6 @@ export const ApplicationForm = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm({
         defaultValues: {
             applicantName: currentUser.userName || '',
