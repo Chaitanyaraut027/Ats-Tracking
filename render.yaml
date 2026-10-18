@@ -1,0 +1,23 @@
+services:
+  # TalentTrack ATS Express Backend Service
+  - type: web
+    name: talenttrack-backend
+    env: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: ATS_SCORING_SERVICE_URL
+        value: http://localhost:8000
+      - key: ATS_SERVICE_TIMEOUT_MS
+        value: 6000
